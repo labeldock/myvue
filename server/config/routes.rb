@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   get 'vue/index'
-
   get 'vue/second'
 
-  resources :models do
-  end
+  resources :models
+  
   get '/table/:table_id', to: 'models#table'
   get '/table', to: 'models#index'
   
