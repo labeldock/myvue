@@ -10,14 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170320134041) do
+ActiveRecord::Schema.define(version: 20170320143446) do
 
   create_table "models", force: :cascade do |t|
     t.string   "table"
     t.string   "title"
-    t.text     "model"
+    t.text     "head"
+    t.text     "data"
+    t.integer  "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["parent_id"], name: "index_models_on_parent_id"
   end
 
 end

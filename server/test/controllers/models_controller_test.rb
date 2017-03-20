@@ -17,7 +17,7 @@ class ModelsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create model" do
     assert_difference('Model.count') do
-      post models_url, params: { model: { model: @model.model, table: @model.table, title: @model.title } }
+      post models_url, params: { model: { data: @model.data, head: @model.head, parent_id: @model.parent_id, table: @model.table, title: @model.title } }
     end
 
     assert_redirected_to model_url(Model.last)
@@ -34,7 +34,7 @@ class ModelsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update model" do
-    patch model_url(@model), params: { model: { model: @model.model, table: @model.table, title: @model.title } }
+    patch model_url(@model), params: { model: { data: @model.data, head: @model.head, parent_id: @model.parent_id, table: @model.table, title: @model.title } }
     assert_redirected_to model_url(@model)
   end
 

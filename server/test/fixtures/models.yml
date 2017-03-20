@@ -3,9 +3,13 @@
 one:
   table: MyString
   title: MyString
-  model: MyText
+  head: MyText
+  data: MyText
+  parent: one
 
 two:
   table: MyString
   title: MyString
-  model: MyText
+  head: MyText
+  data: MyText
+  parent: two

@@ -6,6 +6,11 @@ class ModelsController < ApplicationController
   def index
     @models = Model.all
   end
+  
+  # GET /table/:id
+  def table
+    @models = Model.where table: params[:table_id]
+  end
 
   # GET /models/1
   # GET /models/1.json
@@ -69,6 +74,6 @@ class ModelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def model_params
-      params.require(:model).permit(:table, :title, :model)
+      params.require(:model).permit(:table, :title, :head, :data, :parent_id)
     end
 end
