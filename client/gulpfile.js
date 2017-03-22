@@ -5,6 +5,7 @@ const browserSync = require('browser-sync').create();
 const del = require('del');
 const wiredep = require('wiredep').stream;
 const runSequence = require('run-sequence');
+const proxy = require('http-proxy-middleware');
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -96,17 +97,21 @@ gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 gulp.task('serve', () => {
   runSequence(['clean', 'wiredep'], ['styles', 'scripts', 'fonts'], () => {
-    browserSync.init({
-      notify: false,
-      port: 9000,
-      server: {
-        baseDir: ['.tmp', 'app'],
-        routes: {
-          '/bower_components': 'bower_components'
-        }
-      }
-    });
-
+	  
+	  browserSync.init({
+		  notify: false,
+		  port: 9000,
+		  middleware:[
+			  proxy('/api', {target: 'http://localhost:3000', ws: true, pathRewrite: {'^/api':'/'}} )
+		  ],
+		  server: {
+			  baseDir: ['.tmp', 'app'],
+			  routes: {
+				  '/bower_components': 'bower_components'
+			  }
+		  }
+	  });
+	
     gulp.watch([
       'app/*.html',
       'app/images/**/*',
