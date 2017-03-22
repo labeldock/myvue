@@ -3,8 +3,8 @@
     <tr>
 	  <th>ID</th>
       <th>Table</th>
-      <th>Title</th>
-      <th>Head</th>
+      <th>Tab</th>
+      <th>Alt</th>
       <th>Data</th>
       <th>Parent</th>
 	  <th>Child Models</th>
@@ -17,8 +17,8 @@
       <tr>
 		<td><%= model.id %></td>
         <td><%= model.table %></td>
-        <td><%= model.title %></td>
-        <td><%= model.head %></td>
+        <td><%= model.tab %></td>
+        <td><%= model.alt %></td>
         <td><%= model.data %></td>
 		<td><%= model.parent_id %></td>
 		<td><%= model.models.map{|m| m.id} %></td>

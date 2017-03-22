@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 20170320143446) do
 
   create_table "models", force: :cascade do |t|
     t.string   "table"
-    t.string   "title"
-    t.text     "head"
+    t.string   "tab"
+    t.string   "alt"
     t.text     "data"
     t.integer  "parent_id"
     t.datetime "created_at", null: false

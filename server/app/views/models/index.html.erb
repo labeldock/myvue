@@ -2,37 +2,7 @@
 
 <h1>Models</h1>
 
-<table>
-  <thead>
-    <tr>
-	  <th>ID</th>
-      <th>Table</th>
-      <th>Title</th>
-      <th>Head</th>
-      <th>Data</th>
-      <th>Parent</th>
-	  <th>Child Models</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @models.each do |model| %>
-      <tr>
-		<td><%= model.id %></td>
-        <td><%= model.table %></td>
-        <td><%= model.title %></td>
-        <td><%= model.head %></td>
-        <td><%= model.data %></td>
-		<td><%= model.parent_id %></td>
-		<td><%= model.models.map{|m| m.id} %></td>
-        <td><%= link_to 'Show', model %></td>
-        <td><%= link_to 'Edit', edit_model_path(model) %></td>
-        <td><%= link_to 'Destroy', model, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'list', model: @model %>
 
 <br>
 
