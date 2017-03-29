@@ -1,31 +1,29 @@
 var express = require('express'),
 	router  = express.Router(),
 	proxy   = require('express-http-proxy'),
-	engine = require('ejs-locals'),
 	Article = require('../models/article');
-
-
 
 module.exports = function (app) {
 	app.use('/', router);
-	app.engine('ejs', engine);
+	
+	//proxy
+	app.use('/api', proxy('localhost:3000', {
+		forwardPath: function(req) {
+			return require('url').parse(req.url).path;
+		}
+	}));
 };
 
+
+//page
 router.get('/', function (req, res, next) {
-	res.render('home', {
+	res.render('page/home', {
 		title: 'Generator-Express MVC'
 	});
 });
 
-router.use('/api', proxy('localhost:3000', {
-	forwardPath: function(req) {
-		console.log("require('url').parse(req.url).path",require('url').parse(req.url).path)
-		return require('url').parse(req.url).path;
-	}
-}));
-
-router.get('/:path', function (req, res) {
-	res.render(req.params.path,{
+router.get('/page/:path', function (req, res) {
+	res.render("page/"+req.params.path,{
 		title: 'Generator-Express MVC'
 	});
 })
