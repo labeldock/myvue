@@ -17,13 +17,13 @@ module.exports = function (app) {
 
 //page
 router.get('/', function (req, res, next) {
-	res.render('page/home', {
+	res.render('home', {
 		title: 'Generator-Express MVC'
 	});
 });
 
-router.get('/page/:path', function (req, res) {
-	res.render("page/"+req.params.path,{
+router.get('/:path', function (req, res) {
+	res.render(req.params.path,{
 		title: 'Generator-Express MVC'
 	});
 })
