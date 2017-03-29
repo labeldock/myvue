@@ -14,17 +14,15 @@ module.exports = function (app) {
 	}));
 };
 
-
 //page
 router.get('/', function (req, res, next) {
 	res.render('home', {
-		title: 'Generator-Express MVC'
+		title: 'EXPRESS HOME'
 	});
 });
 
-router.get('/:path', function (req, res) {
-	res.render(req.params.path,{
-		title: 'Generator-Express MVC'
+router.get('/*', function (req, res) {
+	res.render(req.path.substr(1),{
+		title: 'EXPRESS PAGE'
 	});
 })
-
