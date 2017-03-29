@@ -13,6 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require vue.umd
-//= require fetch
 //= require_tree .

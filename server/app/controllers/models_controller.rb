@@ -74,6 +74,6 @@ class ModelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def model_params
-      params.require(:model).permit(:table, :title, :head, :data, :parent_id)
+      params.require(:model).permit(:table, :tab, :alt, :data, :parent_id)
     end
 end
