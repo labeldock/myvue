@@ -1,7 +1,6 @@
 var express = require('express'),
 	router  = express.Router(),
-	proxy   = require('express-http-proxy'),
-	Article = require('../models/article');
+	proxy   = require('express-http-proxy');
 
 module.exports = function (app) {
 	app.use('/', router);
