@@ -16,8 +16,9 @@ gulp.task('watch', function() {
 	gulp.watch('./public/css/*.scss', ['sass']);
 });
 
-gulp.task('serve', function () {
+gulp.task('develop', function () {
 	livereload.listen();
+	
 	nodemon({
 		script: 'app.js',
 		ext: 'js coffee ejs',
