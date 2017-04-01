@@ -1,5 +1,12 @@
 (function(page){
 	
+	var http = function(url,methodOpt){
+		return fetch(url).then(function(response){
+			return response.json();
+		});
+	};
+	
+	
 	page("menu1",function(html){
 		var vm = new Vue({
 			el: this,
@@ -32,6 +39,21 @@
 				this.loadModels();
 			}
 		});
+	});
+	
+	page("menu2",function(){
+		var vm = new Vue({
+			el: this,
+			data:{},
+			methods:{
+				loadWidget:function(){
+					
+				}
+			},
+			mounted:function(){
+				fetch("api/table/widget.json").then(func)
+			}
+		})
 	});
 	
 	
